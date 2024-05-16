@@ -263,6 +263,7 @@ class BEVFormer(MVXTwoStageDetector):
                       prev_gt_labels=None,
                       occ_gts=None,
                       flow_gts=None,
+                      slam_pts=None,
                       **kwargs
                       ):
         """Forward training function.
@@ -288,6 +289,8 @@ class BEVFormer(MVXTwoStageDetector):
         Returns:
             dict: Losses of different branches.
         """
+        if slam_pts is not None:
+            points = slam_pts
         
         len_queue = img.size(1)
         prev_img = img[:, :-1, ...]
