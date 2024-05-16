@@ -291,6 +291,7 @@ class BEVFormer(MVXTwoStageDetector):
         """
         if slam_pts is not None:
             points = slam_pts
+            print(points.shape)
         
         len_queue = img.size(1)
         prev_img = img[:, :-1, ...]
