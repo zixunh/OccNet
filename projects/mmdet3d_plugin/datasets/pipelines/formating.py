@@ -43,5 +43,8 @@ class CustomDefaultFormatBundle3D(DefaultFormatBundle3D):
         
         if 'flow_gts' in results:
             results['flow_gts'] = DC(to_tensor(results['flow_gts']))
+        
+        if 'slam_pts' in results:
+            results['slam_pts'] = DC(to_tensor(results['slam_pts']))
 
         return results
